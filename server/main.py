@@ -16,12 +16,13 @@ prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
 
 
-app = Flask(__name__)
+#app = Flask(__name__, static_folder='client/src', template_folder='client/src')
 
 def userCreate():
     name = input("Whats is your Name ?")
-@app.route('/chat')
+    
 
+@app.route('/chat')
 def handle_conversation():
     context = ""
     print("welcome to Martybot! Type !quit to leave the chat")
@@ -39,11 +40,8 @@ def handle_conversation():
 def response():
     pass
 
-@app.route('/')
-def home():
-    return render_template('./index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
-    userCreate()
+    #userCreate()
     handle_conversation()
